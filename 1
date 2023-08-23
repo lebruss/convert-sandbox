@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bagel Shop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+  #cart {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Welcome to our Bagel Shop!</h1>
+  <p>Price: $5 per bagel</p>
+  <button id="add-to-cart">Add Bagel to Cart</button>
+  <div id="cart">Cart: $0</div>
+
+  <script>
+    // Initialize total cost
+    let totalCost = 0;
+
+    // Get the add to cart button
+    const addToCartButton = document.getElementById('add-to-cart');
+
+    // Get the cart element
+    const cartElement = document.getElementById('cart');
+
+    // Add click event listener to the button
+    addToCartButton.addEventListener('click', () => {
+      // Add bagel price to the total cost
+      totalCost += 5;
+
+      // Update the cart element's text
+      cartElement.textContent = `Cart: $${totalCost}`;
+    });
+  </script>
+</body>
+</html>
