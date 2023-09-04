@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taco and Tree Shop</title>
+    <script>
+        let trees = 0;
+        let money = 0;
+        let tacos = 0;
+
+        // Add a tree every second
+        setInterval(addTree, 1000);
+
+        function addTree() {
+            trees++;
+            updateUI();
+        }
+
+        function sellTree() {
+            if (trees > 0) {
+                trees--;
+                money += 2;
+                updateUI();
+            }
+        }
+
+        function buyTaco() {
+            if (money >= 5) {
+                money -= 5;
+                tacos++;
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('treeCount').innerText = `Trees: ${trees}`;
+            document.getElementById('moneyCount').innerText = `Money: $${money}`;
+            document.getElementById('tacoCount').innerText = `Tacos: ${tacos}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Taco and Tree Shop</h1>
+
+    <button onclick="sellTree()">Sell a Tree for $2</button>
+    <button onclick="buyTaco()">Buy a Taco for $5</button>
+
+    <p id="treeCount">Trees: 0</p>
+    <p id="moneyCount">Money: $0</p>
+    <p id="tacoCount">Tacos: 0</p>
+</body>
+</html>
